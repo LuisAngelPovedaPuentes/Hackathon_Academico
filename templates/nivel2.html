@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nivel 2 - En construcción</title>
+
+<script>
+function fakeLoading(msg = "❌ Error... sigue intentando") {
+    const overlay = document.createElement("div");
+    overlay.id = "loader";
+
+    overlay.innerHTML = `
+        <div class="box">
+            <p>⏳ Cargando...</p>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        overlay.innerHTML = `<div class="box"><p>${msg}</p></div>`;
+    }, 1500);
+
+    setTimeout(() => {
+        overlay.remove();
+    }, 3000);
+}
+
+function processData() {
+    const overlay = document.createElement("div");
+    overlay.id = "loader";
+
+    overlay.innerHTML = `
+        <div class="box">
+            <p>⏳ Validando acceso...</p>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        window.location.href = "/nivel3";
+    }, 2000);
+}
+</script>
+
+<style>
+body {
+    margin: 0;
+    background: url("{{ url_for('static', filename='fondo_nivel2.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial;
+}
+
+/* overlay */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.box {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 10px;
+    color: white;
+}
+
+.btn {
+    position: absolute;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.b1 { top: 20%; left: 15%; width: 120px; height: 60px; }
+
+.b2 { top: 50%; left: 10%; width: 80px; height: 80px; }
+
+.b3 { top: 70%; left: 30%; width: 150px; height: 50px; }
+
+.b4 { top: 30%; right: 20%; width: 100px; height: 100px; }
+
+.b5 { bottom: 15%; right: 10%; width: 120px; height: 60px; }
+
+.b6 { top: 60%; right: 35%; width: 90px; height: 40px; }
+
+.zero {
+    top: 52%;
+    left: 48%;
+    width: 12px;
+    height: 12px;
+}
+
+.zero:hover {
+    border: 2px solid #a855f7;
+    background: rgba(168,85,247,0.2);
+    box-shadow: 0 0 10px #a855f7;
+}
+
+.hint-btn {
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.hint-btn::after {
+    content: "¿Estás perdido?";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-size: 12px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.hint-btn:hover::after {
+    opacity: 0.8;
+}
+
+.hint2::after {
+    content: "¿Algo no encaja?";
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="btn b1" onclick="fakeLoading()"></div>
+<div class="btn b2" onclick="fakeLoading('⚠️ Acceso denegado')"></div>
+<div class="btn b3" onclick="fakeLoading('❌ Ruta inválida')"></div>
+<div class="btn b4" onclick="fakeLoading('⛔ Error de sistema')"></div>
+<div class="btn b5" onclick="fakeLoading('🔒 Bloqueado')"></div>
+<div class="btn b6" onclick="fakeLoading('❌ Intenta nuevamente')"></div>
+<div class="btn zero" onclick="processData()"></div>
+<div class="btn hint-btn hint2" style="top:65%; left:20%;"></div>
+<div class="btn hint-btn"></div>
+
+
+<!-- pistas opcionales -->
+<!-- /access/hidden -->
+<!-- /system/core -->
+<!-- sigue buscando -->
+<!-- no todo es visible -->
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nivel 1 completado</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            margin-top: 20px;
+            background-color: #22c55e;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .btn:hover {
+            background-color: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>✅ Nivel 1 superado</h1>
+    <p>Has encontrado la ruta correcta.</p>
+
+    <p>Prepárate para el siguiente desafío...</p>
+
+    
+    <button class="btn" onclick="irSiguiente()">🚀 Acceder al siguiente desafío</button>
+
+    <script>
+        function irSiguiente() {
+            window.location.href = "/nivel2"; 
+        }
+    </script>
+
+</body>
+</html>

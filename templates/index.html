@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema Seguro</title>
+
+    <!-- /hackathon/test -->
+
+    <script>
+        function fakeLoading(mensajeFinal = "❌ Error de autenticación") {
+            const overlay = document.createElement("div");
+            overlay.id = "fakeLoader";
+            overlay.innerHTML = `
+                <div class="loader-box">
+                    <p>⏳ Cargando...</p>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            setTimeout(() => {
+                overlay.innerHTML = `<div class="loader-box"><p>${mensajeFinal}</p></div>`;
+            }, 2000);
+
+            setTimeout(() => {
+                overlay.remove();
+            }, 3500);
+        }
+
+        function syncState() {
+            const overlay = document.createElement("div");
+            overlay.id = "fakeLoader";
+            overlay.innerHTML = `
+                <div class="loader-box">
+                    <p>⏳ verificando señal...</p>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            setTimeout(() => {
+
+        
+                let a = "/hack";
+                let b = "athon";
+                let c = "/sistema";
+                let d = "-seguro";
+
+                let resultado = a + b + c + d;
+
+                overlay.innerHTML = `
+                    <div class="loader-box">
+                        <p>✔ completo un 50%..60%..70%....</p>
+                        <p><strong>${resultado}</strong></p>
+                    </div>
+                `;
+            }, 2000);
+
+            setTimeout(() => {
+                overlay.remove();
+            }, 5000);
+        }
+    </script>
+
+    <!-- /panel/admin -->
+
+    <style>
+        body {
+            background: url("{{ url_for('static', filename='pngtree-comprehensive-cybersecurity.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: #e2e8f0;
+            font-family: Arial;
+            margin: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            z-index: -1;
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .left, .right {
+            width: 48%;
+        }
+
+        .box {
+            border: 1px solid #334155;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(30, 41, 59, 0.85);
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0,255,0,0.4);
+            border-color: lime;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 70%;
+            transition: all 0.3s ease;
+        }
+
+        input:hover {
+            box-shadow: 0 0 10px rgba(0,255,0,0.5);
+            border: 1px solid lime;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0,255,0,0.6);
+            background-color: #0f172a;
+            color: lime;
+        }
+
+        button:active {
+            transform: scale(0.9);
+        }
+
+        .top-icons {
+            position: relative;
+            height: 120px;
+        }
+
+        .icon {
+            position: absolute;
+            top: 20px;
+            width: 80px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .icon-left { left: 10%; }
+        .icon-center { left: 50%; transform: translateX(-50%); }
+        .icon-right { right: 10%; }
+
+        .icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px lime;
+        }
+
+        @keyframes subtleBlink {
+            0% { opacity: 1; }
+            50% { opacity: 0.85; }
+            100% { opacity: 1; }
+        }
+
+        .icon-center {
+            animation: subtleBlink 2s infinite;
+        }
+
+        .img-saw {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 10px;
+            animation: subtleBlink 3s infinite;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .img-saw:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 25px rgba(0,255,0,0.6);
+        }
+
+        @keyframes blinkHidden {
+            0% { opacity: 0; }
+            50% { opacity: 0.2; }
+            100% { opacity: 0; }
+        }
+
+        .hidden-btn {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            top: 70%;
+            left: 55%;
+            cursor: pointer;
+            animation: blinkHidden 2.5s infinite;
+        }
+
+        .hidden-btn:hover {
+            border: 2px solid #c084fc;
+            background: rgba(192,132,252,0.3);
+            box-shadow: 0 0 15px #a855f7, 0 0 25px #7e22ce;
+        }
+
+        #fakeLoader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- /acceso/privado -->
+
+<h1>🔐 Sistema de Acceso Seguro</h1>
+<p>Acceso restringido. Intenta encontrar la entrada correcta.</p>
+
+<div class="top-icons">
+    <img class="icon icon-left" src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png">
+    <img class="icon icon-center" src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png">
+    <img class="icon icon-right" src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png">
+</div>
+
+<div class="main">
+
+    <div class="left">
+
+        <div class="box">
+            <h3>Panel de autenticación</h3>
+            <form onsubmit="fakeLogin(); return false;">
+                <input type="text" placeholder="Usuario"><br>
+                <input type="password" placeholder="Contraseña"><br>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+
+        <!-- /login/backup -->
+
+        <div class="box">
+            <h3>Verificación secundaria</h3>
+            <form onsubmit="fakeVerify(); return false;">
+                <input type="text" placeholder="Código de acceso"><br>
+                <button type="submit">Verificar</button>
+            </form>
+        </div>
+
+        <div class="box">
+            <h3>Estado del sistema</h3>
+            <p id="status">Conectando...</p>
+        </div>
+
+    </div>
+
+    <div class="right">
+
+        <div class="box">
+            <h3>Panel de acceso rápido</h3>
+
+            <button onclick="fakeLoading()">Login</button>
+            <button onclick="fakeLoading()">Enviar</button>
+            <button onclick="fakeLoading()">Reconectar</button>
+
+            <p>🔎 Pista: A veces lo importante no está en lo que ves...</p>            
+            <p>🧠 El sistema no oculta la verdad… solo la distribuye.</p>
+            <p>⚙️ A veces avanzar no es ir hacia adelante… sino mirar más arriba.</p>
+        </div>
+
+        <div style="position: relative; display: flex; justify-content: center;">
+            <img src="{{ url_for('static', filename='SAW.jpg') }}" class="img-saw">
+            <div class="hidden-btn" onclick="syncState()"></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function fakeLogin() {
+        alert("❌ Credenciales incorrectas");
+    }
+
+    function fakeVerify() {
+        alert("⚠️ Código inválido");
+    }
+
+    setTimeout(() => {
+        document.getElementById("status").innerText = "Error 403 - Acceso bloqueado";
+    }, 2000);
+</script>
+
+<!-- /seguridad/interna -->
+<!-- /hackathon/admin -->
+<!-- nivel demasiado alto para ti -->
+
+</body>
+</html>
