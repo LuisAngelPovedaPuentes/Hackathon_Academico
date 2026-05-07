@@ -34,7 +34,7 @@ def validar():
     password = request.form.get("pass")
 
     if user == "desarrollador" and password == "zeroday":
-        return "<h1>✅ ACCESO TOTAL CONCEDIDO</h1>"
+        return "<h1>✅ FELICITACIONES LOGRASTE TERMINAR TODO EL RETO</h1>"
     else:
         return "<h1>❌ Acceso denegado</h1>"
 
