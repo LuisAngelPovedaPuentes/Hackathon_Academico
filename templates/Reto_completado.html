@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Reto completado</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("{{ url_for('static', filename='ASOMBROSO.png') }}");
+
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    text-align:center;
+    color:white;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(15,23,42,0.55);
+    backdrop-filter: blur(6px);
+    box-shadow:
+    0 0 30px rgba(0,255,255,0.4),
+    0 0 60px rgba(168,85,247,0.3);
+
+    animation: aparecer 1.2s ease;
+}
+
+h1{
+    font-size:70px;
+    margin-bottom:10px;
+    color:#facc15;
+    text-shadow:
+    0 0 10px #facc15,
+    0 0 20px #f59e0b,
+    0 0 40px #f97316;
+}
+
+h2{
+    font-size:38px;
+    margin:10px 0;
+    color:#22c55e;
+    text-shadow:0 0 15px #22c55e;
+}
+
+p{
+    font-size:22px;
+    line-height:1.6;
+    color:#e2e8f0;
+}
+
+.highlight{
+    color:#38bdf8;
+    font-weight:bold;
+    text-shadow:0 0 15px #38bdf8;
+}
+
+.badge{
+    margin-top:25px;
+    display:inline-block;
+    padding:15px 35px;
+    border-radius:15px;
+    background:linear-gradient(90deg,#22c55e,#06b6d4);
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:
+    0 0 15px rgba(34,197,94,0.7),
+    0 0 35px rgba(6,182,212,0.6);
+
+    animation: pulse 2s infinite;
+}
+
+.firework{
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:white;
+    box-shadow:
+    0 0 10px white,
+    0 0 20px white,
+    0 0 40px white;
+
+    animation: fireworks 3s infinite;
+}
+
+.f1{ top:15%; left:20%; animation-delay:0s; }
+.f2{ top:20%; right:20%; animation-delay:1s; }
+.f3{ bottom:18%; left:25%; animation-delay:2s; }
+.f4{ bottom:20%; right:22%; animation-delay:1.5s; }
+
+@keyframes fireworks{
+    0%{
+        transform:scale(0.2);
+        opacity:1;
+    }
+
+    70%{
+        transform:scale(18);
+        opacity:0.8;
+    }
+
+    100%{
+        transform:scale(25);
+        opacity:0;
+    }
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="firework f1"></div>
+<div class="firework f2"></div>
+<div class="firework f3"></div>
+<div class="firework f4"></div>
+
+<div class="container">
+
+<h1>🎉 FELICITACIONES 🎉</h1>
+
+<h2>HAS SUPERADO TODO EL RETO</h2>
+
+<p>
+Tu lógica, paciencia y capacidad de observación<br>
+te llevaron hasta el final.
+</p>
+
+<p class="highlight">
+🔥 ERES UN CRACK 🔥
+</p>
+
+<div class="badge">
+✅ RETO COMPLETADO AL 100%
+</div>
+
+</div>
+
+</body>
+</html>

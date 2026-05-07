@@ -39,7 +39,24 @@ function processData() {
     document.body.appendChild(overlay);
 
     setTimeout(() => {
-        window.location.href = "/nivel3";
+        window.location.href = "/activar_nivel3";
+    }, 2000);
+}
+
+    function processData1() {
+    const overlay = document.createElement("div");
+    overlay.id = "loader";
+
+    overlay.innerHTML = `
+        <div class="box">
+            <p>⏳ Reiniciando sistema...</p>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    setTimeout(() => {
+        window.location.href = "/hackathon/sistema-seguro";
     }, 2000);
 }
 </script>
@@ -105,6 +122,19 @@ body {
     box-shadow: 0 0 10px #a855f7;
 }
 
+.fake-zero {
+    top: 35%;
+    left: 62%;
+    width: 12px;
+    height: 12px;
+}
+
+.fake-zero:hover {
+    border: 2px solid #a855f7;
+    background: rgba(168,85,247,0.2);
+    box-shadow: 0 0 10px #a855f7;
+}
+
 .hint-btn {
     position: absolute;
     top: 40%;
@@ -112,25 +142,46 @@ body {
     width: 120px;
     height: 40px;
     cursor: pointer;
+    z-index: 500;
+}
+
+.hint-btn:hover {
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
 .hint-btn::after {
     content: "¿Estás perdido?";
     position: absolute;
-    top: -25px;
+    top: -28px;
     left: 0;
-    font-size: 12px;
-    color: white;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    background: rgba(0,0,0,0.6);
+    padding: 4px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .hint-btn:hover::after {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .hint2::after {
     content: "¿Algo no encaja?";
+}
+
+.hint-a {
+    top: 65%;
+    left: 20%;
+}
+
+.hint-b {
+    top: 40%;
+    left: 70%;
 }
 </style>
 
@@ -144,9 +195,13 @@ body {
 <div class="btn b4" onclick="fakeLoading('⛔ Error de sistema')"></div>
 <div class="btn b5" onclick="fakeLoading('🔒 Bloqueado')"></div>
 <div class="btn b6" onclick="fakeLoading('❌ Intenta nuevamente')"></div>
+<div class="btn fake-zero" onclick="processData1()"></div>
 <div class="btn zero" onclick="processData()"></div>
-<div class="btn hint-btn hint2" style="top:65%; left:20%;"></div>
-<div class="btn hint-btn"></div>
+<div class="btn hint-btn hint2 hint-a"></div>
+<div class="btn hint-btn hint-b"></div>
+<div class="btn hint-btn hint2 hint-a" onclick="fakeLoading('🧠 A veces la respuesta está cerca')"></div>
+<div class="btn hint-btn hint-b" onclick="fakeLoading('🔍 Sigue observando...')"></div>
+<div class="btn hint-btn" onclick="fakeLoading('🔍 Sigue observando...')"></div>
 
 
 <!-- pistas opcionales -->
