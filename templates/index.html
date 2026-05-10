@@ -10,15 +10,21 @@
         function fakeLoading(mensajeFinal = "❌ Error de autenticación") {
             const overlay = document.createElement("div");
             overlay.id = "fakeLoader";
+
             overlay.innerHTML = `
                 <div class="loader-box">
                     <p>⏳ Cargando...</p>
                 </div>
             `;
+
             document.body.appendChild(overlay);
 
             setTimeout(() => {
-                overlay.innerHTML = `<div class="loader-box"><p>${mensajeFinal}</p></div>`;
+                overlay.innerHTML = `
+                    <div class="loader-box">
+                        <p>${mensajeFinal}</p>
+                    </div>
+                `;
             }, 2000);
 
             setTimeout(() => {
@@ -27,34 +33,31 @@
         }
 
         function syncState() {
+
             const overlay = document.createElement("div");
             overlay.id = "fakeLoader";
+
             overlay.innerHTML = `
                 <div class="loader-box">
                     <p>⏳ verificando señal...</p>
                 </div>
             `;
+
             document.body.appendChild(overlay);
 
             setTimeout(() => {
 
-                let a = "/hack";
-                let b = "athon";
-                let c = "/sistema";
-                let d = "-seguro/login";
-
-                let resultado = a + b + c + d;
-
                 overlay.innerHTML = `
                     <div class="loader-box">
                         <p>✔ completo un 50%..60%..70%....</p>
-                        <p><strong>${resultado}</strong></p>
+                        <p><strong>/hackathon/sistema-seguro</strong></p>
                     </div>
                 `;
+
             }, 2000);
 
             setTimeout(() => {
-                window.location.href = "/hackathon/sistema-seguro/login";
+                overlay.remove();
             }, 5000);
         }
     </script>
@@ -62,6 +65,7 @@
     <!-- /panel/admin -->
 
     <style>
+
         body {
             background: url("{{ url_for('static', filename='pngtree-comprehensive-cybersecurity.jpg') }}") no-repeat center center fixed;
             background-size: cover;
@@ -248,9 +252,12 @@
 
         <div class="box">
             <h3>Panel de autenticación</h3>
+
             <form onsubmit="fakeLogin(); return false;">
                 <input type="text" placeholder="Usuario"><br>
+
                 <input type="password" placeholder="Contraseña"><br>
+
                 <button type="submit">Ingresar</button>
             </form>
         </div>
@@ -259,14 +266,17 @@
 
         <div class="box">
             <h3>Verificación secundaria</h3>
+
             <form onsubmit="fakeVerify(); return false;">
                 <input type="text" placeholder="Código de acceso"><br>
+
                 <button type="submit">Verificar</button>
             </form>
         </div>
 
         <div class="box">
             <h3>Estado del sistema</h3>
+
             <p id="status">Conectando...</p>
         </div>
 
@@ -281,14 +291,19 @@
             <button onclick="fakeLoading()">Enviar</button>
             <button onclick="fakeLoading()">Reconectar</button>
 
-            <p>🔎 Pista: A veces lo importante no está en lo que ves...</p>            
+            <p>🔎 Pista: A veces lo importante no está en lo que ves...</p>
+
             <p>🧠 El sistema no oculta la verdad… solo la distribuye.</p>
+
             <p>⚙️ A veces avanzar no es ir hacia adelante… sino mirar más arriba.</p>
         </div>
 
         <div style="position: relative; display: flex; justify-content: center;">
+
             <img src="{{ url_for('static', filename='SAW.jpg') }}" class="img-saw">
+
             <div class="hidden-btn" onclick="syncState()"></div>
+
         </div>
 
     </div>
@@ -296,6 +311,7 @@
 </div>
 
 <script>
+
     function fakeLogin() {
         alert("❌ Credenciales incorrectas");
     }
@@ -307,6 +323,7 @@
     setTimeout(() => {
         document.getElementById("status").innerText = "Error 403 - Acceso bloqueado";
     }, 2000);
+
 </script>
 
 <!-- /seguridad/interna -->
